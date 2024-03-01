@@ -1,0 +1,118 @@
+<div class="modal fade" id="add_share_amount_modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="id_close_modal_add">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Share Amount Entry Form</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="list-error">
+                </ul>
+                <form id="share_amount_form" data-url="{% url 'accounts:add_share_amount' %}">
+                    <input type="hidden" id="share_holder_id" name="share_holder_id">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="shareAmount">Share Amount<sup>*</sup></label>
+                                <input type="number" class="form-control" id="shareAmount" name="shareAmount" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="duration">Duration (in years)<sup>*</sup></label>
+                                <input type="number" class="form-control" id="duration" name="duration" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="startDate">Start Date<sup>*</sup></label>
+                                <input type="date" class="form-control" id="startDate" name="startDate" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="officeStaff">Office Staff<sup>*</sup></label>
+                                <input type="text" class="form-control" id="officeStaff" name="officeStaff" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="paymentMode">Payment Mode<sup>*</sup></label>
+                                <select class="form-control" id="paymentMode" name="paymentMode" required>
+                                    <option value="C">Cash</option>
+                                    <option value="D">DD</option>
+                                    <option value="A">CARD</option>
+                                    <option value="H">Cheque</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="installmentType">Installment Type<sup>*</sup></label>
+                                <select class="form-control" id="installmentType" name="installmentType" required>
+                                    <option value="M">Monthly</option>
+                                    <option value="Q">Quarterly</option>
+                                    <option value="H">Half-Yearly</option>
+                                    <option value="Y">Yearly</option>
+                                    <option value="C">Custom</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="customInstallmentDetails">
+                        <h6>Installment Details:</h6>
+                        <div class="card">
+                            <div class="row card-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="id_table_list">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Installment Date</th>
+                                                <th>Installment Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="installmentTableBody">
+                                          <!-- Installment details will be added dynamically here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row card-footer">
+                                <div class="col">
+                                    <p id="totalAmount"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="customInstallment" style="display: none;">
+                                <br>
+                        <div class="form-group">
+                            <label for="customDate">Custom Date:</label><br>
+                            <input type="date" class="form-control" id="customDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="customAmount">Custom Amount:</label><br>
+                            <input type="number" class="form-control" id="customAmount">
+                        </div><br>
+                        <button type="button" class="btn btn-primary" id="addCustomInstallment">Add</button>
+                    </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancel_share_amount" class="btn btn-default pull-left close" data-dismiss="modal">Close</button>
+                <button type="button" id="id_save_share_amount" class="btn btn-success" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>

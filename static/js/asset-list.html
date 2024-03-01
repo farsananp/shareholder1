@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>cmms | Asset List</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="vendors/simplebar/css/simplebar.css">
+    <link rel="stylesheet" href="css/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <!-- <link href="css/style.css" rel="stylesheet"> commented -->
+    <link href="css/stylepro.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- fontawesome-6.2.0 -->
+    <link rel="stylesheet" type="text/css" href="plugins/fontawesome/css/fontawesome.min.css" />      
+    <link rel="stylesheet" type="text/css" href="plugins/fontawesome/css/all.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="plugins/fontawesome/css/light.min.css" />  
+    <link rel="stylesheet" type="text/css" href="plugins/fontawesome/css/thin.min.css" />  
+    <!-- <link href="css/sidebarpro.css" rel="stylesheet"> -->
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
+    <link href="css/examples.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      // Shared ID
+      gtag('config', 'UA-118965717-3');
+      // Bootstrap ID
+      gtag('config', 'UA-118965717-5');
+    </script>
+    <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="sidebar sidebar-light sidebar-fixed" id="sidebar">
+        <div class="sidebar-brand d-none d-md-flex">
+            <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+              <use xlink:href="assets/brand/coreui.svg#full"></use>
+            </svg>
+            <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+              <use xlink:href="assets/brand/coreui.svg#signet"></use>
+            </svg>
+            <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+        </div>
+        <ul class="sidebar-nav metismenu" data-coreui="navigation" data-simplebar="">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">
+              <svg class="nav-icon">
+                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+              </svg> Dashboard</a></li>
+          
+          <li class="nav-title">Asset Management</li>
+          <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+              <svg class="nav-icon">
+                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
+              </svg> Asset Management</a>
+            <ul class="nav-group-items">
+              <li class="nav-item"><a class="nav-link" href="asset-list.html"><span class="nav-icon"></span> Assets</a></li>
+              <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span> Tracking</a></li>
+              <li class="nav-item"><a class="nav-link" href="base/cards.html"><span class="nav-icon"></span> Maintenance</a></li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+    <div class="sidebar sidebar-light customeoff sidebar-lg sidebar-end sidebar-overlaid hide" id="aside">
+        <div class="sidebar-header bg-transparent p-0">
+            <ul class="nav nav-underline nav-underline-primary" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link active" data-coreui-toggle="tab" href="#timeline" role="tab" aria-selected="true">
+                    <svg class="icon">
+                      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list"></use>
+                    </svg></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" data-coreui-toggle="tab" href="#messages" role="tab" aria-selected="false" tabindex="-1">
+                    <svg class="icon">
+                      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speech"></use>
+                    </svg></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" data-coreui-toggle="tab" href="#settings" role="tab" aria-selected="false" tabindex="-1">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
+                  </svg></a></li>
+            </ul>
+            <button class="sidebar-close" type="button" data-coreui-close="sidebar">
+              <svg class="icon">
+                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-x"></use>
+              </svg>
+            </button>
+        </div>
+        <!-- Tab panes-->
+        <div class="tab-content">
+          <div class="tab-pane active" id="timeline" role="tabpanel">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item border-start-4 border-start-secondary bg-light text-center fw-bold text-medium-emphasis text-uppercase small dark:bg-white dark:bg-opacity-10 dark:text-medium-emphasis">Today</div>
+              <div class="list-group-item border-start-4 border-start-warning list-group-item-divider">
+                <div class="avatar avatar-lg float-end"><img class="avatar-img" src="assets/img/avatars/7.jpg" alt="user@email.com"></div>
+                <div>Meeting with <strong>Lucas</strong></div><small class="text-medium-emphasis me-3">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
+                  </svg> 1 - 3pm</small><small class="text-medium-emphasis">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-location-pin"></use>
+                  </svg> Palo Alto, CA</small>
+              </div>
+              <div class="list-group-item border-start-4 border-start-info">
+                <div class="avatar avatar-lg float-end"><img class="avatar-img" src="assets/img/avatars/4.jpg" alt="user@email.com"></div>
+                <div>Skype with <strong>Megan</strong></div><small class="text-medium-emphasis me-3">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
+                  </svg> 4 - 5pm</small><small class="text-medium-emphasis">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-skype"></use>
+                  </svg> On-line</small>
+              </div>
+              <div class="list-group-item border-start-4 border-start-secondary bg-light text-center fw-bold text-medium-emphasis text-uppercase small dark:bg-white dark:bg-opacity-10 dark:text-medium-emphasis">Tomorrow</div>
+              <div class="list-group-item border-start-4 border-start-danger list-group-item-divider">
+                <div>New UI Project - <strong>deadline</strong></div><small class="text-medium-emphasis me-3">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
+                  </svg> 10 - 11pm</small><small class="text-medium-emphasis">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-home"></use>
+                  </svg> creativeLabs HQ</small>
+                <div class="avatars-stack mt-2">
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/2.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/3.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/4.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/5.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/6.jpg" alt="user@email.com"></div>
+                </div>
+              </div>
+              <div class="list-group-item border-start-4 border-start-success list-group-item-divider">
+                <div><strong>#10 Startups.Garden</strong> Meetup</div><small class="text-medium-emphasis me-3">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
+                  </svg> 1 - 3pm</small><small class="text-medium-emphasis">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-location-pin"></use>
+                  </svg> Palo Alto, CA</small>
+              </div>
+              <div class="list-group-item border-start-4 border-start-primary list-group-item-divider">
+                <div><strong>Team meeting</strong></div><small class="text-medium-emphasis me-3">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
+                  </svg> 4 - 6pm</small><small class="text-medium-emphasis">
+                  <svg class="icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-home"></use>
+                  </svg> creativeLabs HQ</small>
+                <div class="avatars-stack mt-2">
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/2.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/3.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/4.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/5.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/6.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/7.jpg" alt="user@email.com"></div>
+                  <div class="avatar avatar-xs"><img class="avatar-img" src="assets/img/avatars/8.jpg" alt="user@email.com"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane p-3" id="messages" role="tabpanel">
+            <div class="message">
+              <div class="py-3 pb-5 me-3 float-start">
+                <div class="avatar"><img class="avatar-img" src="assets/img/avatars/7.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
+              </div>
+              <div><small class="text-medium-emphasis">Lukasz Holeczek</small><small class="text-medium-emphasis float-end mt-1">1:52 PM</small></div>
+              <div class="text-truncate fw-bold">Lorem ipsum dolor sit amet</div><small class="text-medium-emphasis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+            </div>
+            <hr>
+            <div class="message">
+              <div class="py-3 pb-5 me-3 float-start">
+                <div class="avatar"><img class="avatar-img" src="assets/img/avatars/7.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
+              </div>
+              <div><small class="text-medium-emphasis">Lukasz Holeczek</small><small class="text-medium-emphasis float-end mt-1">1:52 PM</small></div>
+              <div class="text-truncate fw-bold">Lorem ipsum dolor sit amet</div><small class="text-medium-emphasis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+            </div>
+            <hr>
+            <div class="message">
+              <div class="py-3 pb-5 me-3 float-start">
+                <div class="avatar"><img class="avatar-img" src="assets/img/avatars/7.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
+              </div>
+              <div><small class="text-medium-emphasis">Lukasz Holeczek</small><small class="text-medium-emphasis float-end mt-1">1:52 PM</small></div>
+              <div class="text-truncate fw-bold">Lorem ipsum dolor sit amet</div><small class="text-medium-emphasis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+            </div>
+            <hr>
+            <div class="message">
+              <div class="py-3 pb-5 me-3 float-start">
+                <div class="avatar"><img class="avatar-img" src="assets/img/avatars/7.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
+              </div>
+              <div><small class="text-medium-emphasis">Lukasz Holeczek</small><small class="text-medium-emphasis float-end mt-1">1:52 PM</small></div>
+              <div class="text-truncate fw-bold">Lorem ipsum dolor sit amet</div><small class="text-medium-emphasis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+            </div>
+            <hr>
+            <div class="message">
+              <div class="py-3 pb-5 me-3 float-start">
+                <div class="avatar"><img class="avatar-img" src="assets/img/avatars/7.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
+              </div>
+              <div><small class="text-medium-emphasis">Lukasz Holeczek</small><small class="text-medium-emphasis float-end mt-1">1:52 PM</small></div>
+              <div class="text-truncate fw-bold">Lorem ipsum dolor sit amet</div><small class="text-medium-emphasis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+            </div>
+          </div>
+          <div class="tab-pane p-3" id="settings" role="tabpanel">
+            <h6>Settings</h6>
+            <div class="aside-options">
+              <div class="clearfix mt-4">
+                <div class="form-check form-switch form-switch-lg">
+                  <input class="form-check-input me-0" id="flexSwitchCheckDefaultLg" type="checkbox" checked="">
+                  <label class="form-check-label fw-semibold small" for="flexSwitchCheckDefaultLg">Option 1</label>
+                </div>
+              </div>
+              <div><small class="text-medium-emphasis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small></div>
+            </div>
+            <div class="aside-options">
+              <div class="clearfix mt-3">
+                <div class="form-check form-switch form-switch-lg">
+                  <input class="form-check-input me-0" id="flexSwitchCheckDefaultLg" type="checkbox">
+                  <label class="form-check-label fw-semibold small" for="flexSwitchCheckDefaultLg">Option 2</label>
+                </div>
+              </div>
+              <div><small class="text-medium-emphasis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small></div>
+            </div>
+            <div class="aside-options">
+              <div class="clearfix mt-3">
+                <div class="form-check form-switch form-switch-lg">
+                  <input class="form-check-input me-0" id="flexSwitchCheckDefaultLg" type="checkbox">
+                  <label class="form-check-label fw-semibold small" for="flexSwitchCheckDefaultLg">Option 3</label>
+                </div>
+              </div>
+            </div>
+            <div class="aside-options">
+              <div class="clearfix mt-3">
+                <div class="form-check form-switch form-switch-lg">
+                  <input class="form-check-input me-0" id="flexSwitchCheckDefaultLg" type="checkbox" checked="">
+                  <label class="form-check-label fw-semibold small" for="flexSwitchCheckDefaultLg">Option 4</label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <h6>System Utilization</h6>
+            <div class="text-uppercase mb-1 mt-4"><small><b>CPU Usage</b></small></div>
+            <div class="progress progress-thin">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div><small class="text-medium-emphasis">348 Processes. 1/4 Cores.</small>
+            <div class="text-uppercase mb-1 mt-2"><small><b>Memory Usage</b></small></div>
+            <div class="progress progress-thin">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            </div><small class="text-medium-emphasis">11444GB/16384MB</small>
+            <div class="text-uppercase mb-1 mt-2"><small><b>SSD 1 Usage</b></small></div>
+            <div class="progress progress-thin">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+            </div><small class="text-medium-emphasis">243GB/256GB</small>
+            <div class="text-uppercase mb-1 mt-2"><small><b>SSD 2 Usage</b></small></div>
+            <div class="progress progress-thin">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+            </div><small class="text-medium-emphasis">25GB/256GB</small>
+          </div>
+        </div>
+    </div>
+    <!-- asset add -->
+    <div class="sidebar sidebar-light customeoff sidebar-lg sidebar-end sidebar-overlaid hide" id="aside2">
+      <div class="sidebar-header bg-transparent p-0">
+          <h5 class="modal-title" id="#gridSystemModal1">Add New Task</h5>
+          <button class="sidebar-close" type="button" data-coreui-close="sidebar">
+            <i class="fa-regular fa-xmark"></i>
+          </button>
+      </div>
+      <!-- Tab panes-->
+      <form class="row g-3 p-2">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- asset end -->
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
+      <header class="header header-sticky mb-4">
+          <div class="container-fluid">
+              <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+                <svg class="icon icon-lg">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
+                </svg>
+              </button>
+              <a class="header-brand d-md-none" href="#">
+                <svg width="118" height="46" alt="CoreUI Logo">
+                  <use xlink:href="assets/brand/coreui.svg#full"></use>
+                </svg></a>
+              
+              <nav class="header-nav ms-auto me-4">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                  <input class="btn-check" id="btn-light-theme" type="radio" name="theme-switch" autocomplete="off" value="light" onchange="handleThemeChange(this)">
+                  <label class="btn btn-primary" for="btn-light-theme">
+                    <svg class="icon">
+                      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-sun"></use>
+                    </svg>
+                  </label>
+                  <input class="btn-check" id="btn-dark-theme" type="radio" name="theme-switch" autocomplete="off" value="dark" onchange="handleThemeChange(this)">
+                  <label class="btn btn-primary" for="btn-dark-theme">
+                    <svg class="icon">
+                      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-moon"></use>
+                    </svg>
+                  </label>
+                </div>
+              </nav>
+              <ul class="header-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">
+                    <svg class="icon icon-lg">
+                      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                    </svg></a></li>
+                <li class="nav-item"><a class="nav-link" href="#">
+                    <svg class="icon icon-lg">
+                      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                    </svg></a></li>
+                <li class="nav-item"><a class="nav-link" href="#">
+                    <svg class="icon icon-lg">
+                      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                    </svg></a></li>
+              </ul>
+              <ul class="header-nav ms-3">
+                <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg" alt="user@email.com"></div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end pt-0">
+                    <div class="dropdown-header bg-light py-2">
+                      <div class="fw-semibold">Account</div>
+                    </div><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                      </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                      </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-task"></use>
+                      </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-comment-square"></use>
+                      </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a>
+                    <div class="dropdown-header bg-light py-2">
+                      <div class="fw-semibold">Settings</div>
+                    </div><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
+                      </svg> Profile</a><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
+                      </svg> Settings</a><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-credit-card"></use>
+                      </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-file"></use>
+                      </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
+                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                      </svg> Lock Account</a><a class="dropdown-item" href="#">
+                      <svg class="icon me-2">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                      </svg> Logout</a>
+                  </div>
+                </li>
+              </ul>
+              <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#aside')).show()">
+                <svg class="icon icon-lg">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-applications-settings"></use>
+                </svg>
+              </button>
+          </div>
+          <div class="header-divider"></div>
+          <div class="container-fluid">
+              <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb my-0 ms-2">
+                      <li class="breadcrumb-item">
+                        <!-- if breadcrumb is single--><span>Asset</span>
+                      </li>
+                      <li class="breadcrumb-item active"><span>List</span></li>
+                  </ol>
+              </nav>
+          </div>
+      </header>
+      <div class="body flex-grow-1 px-3">
+        <div class="container-fluid">
+          
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">Asset Details</div>
+                    <div class="card-body">
+                        <div class="col-md-12 mb-2">
+                          <form class="row row-cols-lg-auto g-3 align-items-center">
+                            <div class="col-12">
+                              <select class="form-select" id="inlineFormSelectPref">
+                                <option selected>Choose...</option>
+                                <option value="1">Mobile Device</option>
+                                <option value="2">Vehicle</option>
+                              </select>
+                            </div>
+                            <div class="col-12">
+                              <div class="input-group">
+                                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+                                <div class="input-group-text"><i class="fa fa-search"></i></div>
+                              </div>
+                            </div>
+                            <div class="col-auto ms-auto">
+                              <a class="btn btn-secondary" href="asset-details.html">
+                                  <i class="fa fa-plus"></i> Add new Asset
+                              </a>
+                            </div>
+                          </form>
+                          
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table">
+                              <thead class="table-dark">
+                                  <tr>
+                                      <th>Asset Image</th>
+                                      <th>Asset Id</th>
+                                      <th>Description</th>
+                                      <th>Asset Type</th>
+                                      <th>Current Location</th>
+                                      <th>Assigned To</th>
+                                      <th>Status</th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td><img src="https://fdn.gsmarena.com/imgroot/news/23/02/oneplus-11-buds-pro-2-india-price-sale-date/-1200w5/gsmarena_001.jpg" width=100></td>
+                                      <td>M00012</td>
+                                      <td>Smart Phone</td>
+                                      <td>Mobile Device</td>
+                                      <td>N/A</td>
+                                      <td>User1</td>
+                                      <td><span class="badge bg-success ms-auto">Available</span> </td>
+                                      <td>
+                                          <div class="dropdown">
+                                              <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                <svg class="icon">
+                                                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
+                                                </svg>
+                                              </button>
+                                              <div class="dropdown-menu dropdown-menu-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-10px, 28px);" data-popper-placement="bottom-end" data-popper-reference-hidden="" data-popper-escaped="">
+                                                  <a class="dropdown-item" href="#" data-coreui-toggle="modal" data-coreui-target="#staticBackdrop">Transfer</a>
+                                                  <a class="dropdown-item" href="#">Edit</a>
+                                                  <a class="dropdown-item text-danger" href="#">Delete</a></div>
+                                          </div>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmYzfMNfD7DzVwErHzi0nz70I05sa4oxk1qEJ90rfp&s" width=100></td>
+                                      <td>M00013</td>
+                                      <td>Laptop</td>
+                                      <td>Mobile Device</td>
+                                      <td>Support Room</td>
+                                      <td>User1</td>
+                                      <td><span class="badge bg-success ms-auto">Available</span> </td>
+                                      <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <svg class="icon">
+                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
+                                              </svg>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-10px, 28px);" data-popper-placement="bottom-end" data-popper-reference-hidden="" data-popper-escaped="">
+                                              <a class="dropdown-item" href="#" data-coreui-toggle="modal" data-coreui-target="#receivingscreen">Receive</a>
+                                              <a class="dropdown-item" href="#">Edit</a>
+                                              <a class="dropdown-item text-danger" href="#">Delete</a></div>
+                                        </div>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRto60ZWP6xuGidvyXT5fDmD9IQG72PsmMp0mAEyNQNyOrrQIC88n7qmZLhaK9GvQ7phWzFDYWcCYbT8z8pKw7WnGPcZan7N_yvsTfQ0emIz2SWkDPKWX7Krkugfuv46JQmhw&usqp=CAc" width=100></td>
+                                      <td>MN0017</td>
+                                      <td>Monitor</td>
+                                      <td>Electronics</td>
+                                      <td>Developer Room</td>
+                                      <td>User B</td>
+                                      <td><span class="badge bg-danger ms-auto">Repair</span> </td>
+                                      <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <svg class="icon">
+                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
+                                              </svg>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-10px, 28px);" data-popper-placement="bottom-end" data-popper-reference-hidden="" data-popper-escaped=""><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
+                                        </div>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="fade offcanvas-backdrop show d-none"></div>
+      <!-- pop up start -->
+      <div class="modal fade" id="staticBackdrop" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Transfer Asset</h5>
+                  <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                      <div class="col-lg-4 col-md-12">
+                          <label class="col-form-label  pe-0">Location</label>
+                          <!-- <input type="text"  class="form-control form-control-sm" name="assetid" />       -->
+                          <select class="form-control">
+                              <option> ---- </option>
+                              <option> Conference Room </option>
+                              <option> Accounts </option>
+                          </select>
+                      </div>
+                        <div class="col-lg-4 col-md-12">
+                            <label class="col-form-label  pe-0">Issued To</label>
+                            <!-- <input type="text"  class="form-control form-control-sm" name="assetid" />       -->
+                            <select class="form-control">
+                                <option> ---- </option>
+                                <option> User 1 </option>
+                                <option> User 2 </option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <label class="col-form-label  pe-0">Issued Date</label>
+                            <input type="date"  class="form-control form-control-sm" name="assetid" /> 
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <label class="col-form-label  pe-0">Issued Time</label>
+                            <input type="time"  class="form-control form-control-sm" name="assetid" /> 
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <label class="col-form-label  pe-0">Exp. Return Date</label>
+                            <input type="date"  class="form-control form-control-sm" name="assetid" /> 
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <label class="col-form-label  pe-0">Exp. Return Time</label>
+                            <input type="time"  class="form-control form-control-sm" name="assetid" /> 
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <label class="col-form-label  pe-0">Remarks</label>
+                            <textarea  class="form-control form-control-sm" name="assetid"> </textarea>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Transfer</button>
+                </div>
+              </div>
+          </div>
+      </div>
+      <!-- pop up ends-->
+      <!-- pop up start -->
+      <div class="modal fade" id="receivingscreen" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Receive Asset</h5>
+                <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-lg-4 col-md-12">
+                          <label class="col-form-label  pe-0">Received Date</label>
+                          <input type="date"  class="form-control form-control-sm" name="assetid" /> 
+                      </div>
+                      <div class="col-lg-4 col-md-12">
+                          <label class="col-form-label  pe-0">Received Time</label>
+                          <input type="time"  class="form-control form-control-sm" name="assetid" /> 
+                      </div>
+                      <div class="col-lg-6 col-md-12">
+                          <label class="col-form-label  pe-0">Remarks</label>
+                          <textarea  class="form-control form-control-sm" name="assetid"> </textarea>
+                      </div>
+                  </div>
+                  
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Transfer</button>
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- pop up ends-->
+      <footer class="footer">
+        <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io">Bootstrap Admin Template</a> © 2022 creativeLabs.</div>
+        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
+      </footer>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="vendors/simplebar/js/simplebar.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="vendors/chart.js/js/chart.min.js"></script>
+    <script src="vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="vendors/@coreui/utils/js/coreui-utils.js"></script>
+    <script src="vendors/fullcalendar/index.global.js"></script>
+    <script src="vendors/fullcalendar/fullcalendar-example.js"></script>
+    <script src="js/main.js"></script>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script>
+      if (document.body.classList.contains('dark-theme')) {
+        var element = document.getElementById('btn-dark-theme');
+        if (typeof(element) != 'undefined' && element != null) {
+          document.getElementById('btn-dark-theme').checked = true;
+        }
+      } else {
+        var element = document.getElementById('btn-light-theme');
+        if (typeof(element) != 'undefined' && element != null) {
+          document.getElementById('btn-light-theme').checked = true;
+        }
+      }
+
+      function handleThemeChange(src) {
+        var event = document.createEvent('Event');
+        event.initEvent('themeChange', true, true);
+
+        if (src.value === 'light') {
+          document.body.classList.remove('dark-theme');
+        }
+        if (src.value === 'dark') {
+          document.body.classList.add('dark-theme');
+        }
+        document.body.dispatchEvent(event);
+      }
+    
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,63 @@
+{% load i18n %}
+<!-- Begin Boarder adding modal -->
+<div class="modal fade" id="add_shareholders">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="id_close_modal_add">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add New Share Holder</h4>
+            </div>
+            <div class="modal-body">
+               <ul class="list-error">
+                </ul>
+                <form id="add_shareholder_form" data-url="{% url 'accounts:add_shareholder' %}" class="form-horizontal" action="" method="post" >
+                    <div class="box-body">
+                        <input type="hidden" name="id">
+                        <div class="form-group" style="padding-bottom: 10px;">
+                            <label for="inputEmail3" class="col-sm-5 control-label">Name<sup>*</sup></label>
+                            <div class="col-sm-7">
+                                <input id="id_name" class="form-control" type="text" name="name" oninput="this.value=this.value.toUpperCase();" placeholder=" Name">
+                            </div>
+                        </div>
+                         <div class="form-group" style="padding-bottom: 10px;">
+                            <label for="inputEmail3" class="col-sm-5 control-label">Mobile<sup>*</sup></label>
+                            <div class="col-sm-7">
+                                <input id="id_mobile" class="form-control mobile-only" type="number" maxlength="10" name="mobile" placeholder="Mobile">
+                            </div>
+                        </div>
+
+                         <div class="form-group" style="padding-bottom: 10px;">
+                            <label for="inputEmail3" class="col-sm-5 control-label">Email<sup>*</sup></label>
+                            <div class="col-sm-7">
+                                <input id="id_email" class="form-control" type="email" name="email" oninput="this.value=this.value.toLowerCase();" placeholder=" email">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" style="padding-bottom: 10px;">
+                            <label for="inputPassword3" class="col-sm-5 control-label">Country<sup>*</sup></label>
+                            <div class="col-sm-7">
+                                <select name="country" class="form-control" id="ïd_country">
+                                    <option value="" selected> Select a Country</option>
+                                    {% for item in country %}
+                                    <option value="{{item.countryid}}">{{item.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancel_master" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" id="id_save_share_holder" class="btn btn-success" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ending of boarder adding modal -->
+
+<script type="text/javascript">
+
+</script>

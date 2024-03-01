@@ -1,0 +1,38 @@
+.simplebar-content > li > ul li:hover ul {
+    padding: 0.625rem 0;
+    width: 13rem;
+    left: 13rem;
+    top: -0.625rem;
+    border: 0;
+    margin: 0; }
+.simplebar-content > li > ul li:hover ul:after {
+      content: none; }
+.simplebar-content > li > ul li:hover ul {
+      left: auto;
+      right: 13rem; }
+.simplebar-content > li.mm-active > a {
+  background: rgba(13, 153, 255, 0.05);
+  color: #fff; }
+.simplebar-content > li.mm-active > a i {
+    color: #fff; }
+.simplebar-content > li:hover > a {
+  background-color: rgba(13, 153, 255, 0.05);
+  color: var(--primary);
+  /* box-shadow:0 12px 15px 0 var(--rgba-primary-1); */
+  border-radius: 0;
+  position: unset; }
+.simplebar-content > li:hover > a i {
+    color: #fff; }
+.simplebar-content > li:hover > a .nav-text {
+    padding-left: auto;
+    padding-right: 1.6875rem; }
+.simplebar-content > li:hover > ul {
+  height: auto !important;
+  overflow: visible;
+  border: 0;
+  margin-left: 0;
+  left: 3.75rem;
+  width: 13rem;
+  border: 0;
+  padding: 0.625rem 0;
+  top: 0px; }

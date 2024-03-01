@@ -1,0 +1,87 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Amount Summary</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+
+    <nav class="bg-light py-2">
+        <div class="container">
+            <a href="{% url 'accounts:dashboard' %}">Dashboard</a>
+        </div>
+    </nav>
+
+        <h2 class="text mb-4">Share Amount Summary </h2>
+
+        <div class="row mb-3">
+            <div class="col-md-3" style="display: none;">
+                <label for="countryFilter" class="form-label">Country</label>
+                <select class="form-select" id="countryFilter">
+                     <option value="">All</option>
+                    {% for item in country %}
+                    <option value="{{item.countryid}}">{{item.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="nameFilter" class="form-label">Shareholder Name</label>
+                <select id="nameFilter" class="form-select">
+                     <option value="">All</option>
+                    {% for item in shareholders %}
+                    <option value="{{item.shareholderid}}">{{item.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="startDate" class="form-label" >Start Date</label>
+                <input type="date" class="form-control float-end" value="{{first_day|date:'Y-m-d' }}" id="startDate" name="startDate">
+            </div>
+            <div class="col-md-3">
+                <label for="endDate" class="form-label">End Date</label>
+                <input type="date" class="form-control float-end" value="{{ last_day|date:'Y-m-d' }}" id="endDate" name="endDate">
+
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="summaryTable" class="table table-bordered table-striped" data-url="{% url 'accounts:share_summary_view' %}">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Due Payment Date</th>
+                        <th>Due Amount</th>
+                        <th>Paid Date</th>
+                        <th>Paid Amount</th>
+                        <th>Balance Amount</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="{% static 'js/master/summaryreport.js' %}"></script>
+
+</body>
+
+</html>

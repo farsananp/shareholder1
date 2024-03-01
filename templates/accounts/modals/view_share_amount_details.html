@@ -1,0 +1,54 @@
+<!-- Button to trigger the modal -->
+<!-- Share Amount Modal -->
+<div class="modal fade" id="shareAmountViewModal" tabindex="-1" aria-labelledby="shareAmountViewModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="shareAmountModalLabel">Share Amount Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Share Amount Table -->
+        <input id="share_holder" type="hidden">
+        <div class="table-responsive">
+        <table class="table table-bordered" id="id_table_shareamount_list" data-url="{% url 'accounts:get_share_amount_details' %}">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Share Holder</th>
+              <th>Total Amount</th>
+              <th>Start Date</th>
+              <th>Total Paid Amount</th>
+              <th>Total Balance Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        </div>
+        <hr>
+        <!-- Installment Table -->
+        <h5>Installment Details</h5>
+        <div class="table-responsive">
+         <table class="table table-bordered" id="id_table_shareamount_installments" data-popup-url=" {% url 'accounts:make_payment' %}" data-url="{% url 'accounts:get_share_amount_installments' %}">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Due Date</th>
+              <th>Due Amount</th>
+              <th>Paid Amount</th>
+              <th>Balance Amount </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
